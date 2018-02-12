@@ -19,10 +19,10 @@ def searchPage():
 def parsing():
 	return search.search(request.args.get('path'))
 
-@app.route('/download', methods=['POST'])
+@app.route('/download', methods=['post'])
 def downloadPage():
-	path=request.args.get('path')
-	fname=request.args.get('fname')
+	path = str(request.form.get('path'))
+	fname = str(request.form.get('fname'))
 	return download.download(path, fname)
 
 if __name__ == '__main__':

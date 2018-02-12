@@ -13,9 +13,17 @@
 	</head>
 	<body>
 		<div id="backgroundCover"></div>
-
+			<div id=wrapper><a href="/"><input type="submit" value="Home" id="home" class="btn btn-primary"></a></div>
 			<div id="table">
 				<h3>NTFS Parser</h3><br>
+				<form method="POST" action="/search">
+					<div><input type="text" name="path" id="path" placeholder="c:\\Windows" class="form-control"></div>
+					<div><input type="submit" value="Find" id="msubmit" class="btn btn-primary"></div>
+				</form>
+				<form method="POST" action="/download">
+					<div><input type="text" name="fname" id="fname" placeholder="test.txt" class="form-control"></div>
+					<div><input type="submit" value="Download" id="msubmit" class="btn btn-primary"></div>
+				</form>
 				<br>
 				<table class='table table-bordered'>
 					<thead>
@@ -25,15 +33,16 @@
 							<th>FILENAME</th>
 							<th>SIZE</th>
 							<th>PATH</th>
-							<th>Modify TIME</th>
-							<th>Access TIME</th>
-							<th>Create TIME</th>
+							<th>MTIME</th>
+							<th>ATIME</th>
+							<th>CTIME</th>
+							<th>ETIME</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td colspan="8" style="padding:100px;text-align: center;font-size:30px">
-								Wait!!
+							<td colspan="10" style="padding:100px;text-align: center;font-size:30px">
+								Parsing...
 								<div class="loader"></div>
 							</td>
 						</tr>

@@ -15,25 +15,26 @@ class Extract_File:
         dir_path = str(dir_path)
         
         count = 0
-        dir_path = dir_path.replace("\\", "/")
-        self.directory = self.fs.open_dir(path=dir_path)
+        dir_m_path = dir_path.replace("\\", "/")
+        self.directory = self.fs.open_dir(path=dir_m_path)
         for f in self.directory:
             try:
                 file_name = f.info.name.name
-                filepath = dir_path  + "\\" + file_name.decode('utf-8')
+                filepath = dir_m_path  + "\\" + file_name.decode('utf-8')
 
-                # if os.path.isdir(filepath): t = "Directory"
-                # else: t = "File"
-                t = "N/A"
+                is_dir = str(f.info.meta.type)
+                if is_dir == "TSK_FS_META_TYPE_DIR": t = "Directory"
+                else: t = "File"
 
                 d = {
                     "type" : t,
                     "filename" : file_name.decode('utf-8'),
                     "size" : f.info.meta.size,
-                    "path" : dir_path,
+                    "path" : self.volume.split(".\\")[1] + "\\" + dir_path,
                     "mtime" : f.info.meta.mtime,
                     "atime" : f.info.meta.atime,
-                    "ctime" : f.info.meta.ctime
+                    "ctime" : f.info.meta.ctime,
+                    "etime" : f.info.meta.crtime
                 }
 
                 data.append(d)

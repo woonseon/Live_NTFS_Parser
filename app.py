@@ -17,14 +17,16 @@ def searchPage():
 
 @app.route('/parsing')
 def parsing():
+	global pathN
+	pathN = str(request.args.get('path'))
 	return search.search(request.args.get('path'))
 
-@app.route('/download', methods=['post'])
+@app.route("/download", methods=['post'])
 def downloadPage():
-	path = str(request.form.get('path'))
+	path = pathN
 	fname = str(request.form.get('fname'))
 	return download.download(path, fname)
 
 if __name__ == '__main__':
-	app.debug = True
+	# app.debug = True
 	app.run(host='0.0.0.0')

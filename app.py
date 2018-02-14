@@ -27,6 +27,10 @@ def downloadPage():
 	fname = str(request.form.get('fname'))
 	return download.download(path, fname)
 
+@app.errorhandler(404)
+def page_not_found(error):
+	return render_template('page_not_found.html')
+
 if __name__ == '__main__':
-	# app.debug = True
+	app.debug = True
 	app.run(host='0.0.0.0')

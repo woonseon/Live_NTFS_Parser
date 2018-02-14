@@ -1,13 +1,16 @@
 #-*- coding: utf-8 -*-
-
 import pytsk3, sys
+from flask import render_template
 
 class Extract_File:
 
     def __init__(self, volume):
-        self.volume='\\\\.\\'+str(volume)
-        self.img=pytsk3.Img_Info(self.volume)
-        self.fs=pytsk3.FS_Info(self.img)
+        try:
+            self.volume='\\\\.\\'+str(volume)
+            self.img=pytsk3.Img_Info(self.volume)
+            self.fs=pytsk3.FS_Info(self.img)
+        except:
+            return "none"
     
     def open_directory(self, dir_path):
         data = []

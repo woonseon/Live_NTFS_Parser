@@ -27,7 +27,7 @@ body {
 }
 
 #table {
-	width : 1000px;
+	width : 1200px;
 	padding : 40px;
 	margin : auto;
 	margin-top:30px;
@@ -35,6 +35,11 @@ body {
 	border-radius : 5px;
 	border : 5px #ddd solid;
 	text-align: center;
+}
+
+#itable{
+	width:100%;
+	overflow-x:scroll;
 }
 
 #submit {

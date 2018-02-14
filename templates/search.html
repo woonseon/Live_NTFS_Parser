@@ -18,35 +18,39 @@
 				<h3>NTFS Parser</h3><br>
 					<form method="POST" action="/search">
 						<div><input type="text" name="path" id="path" placeholder="C:\\Users\\woonseon\\Desktop" class="form-control"></div>
-						<div><input type="submit" value="Find" id="msubmit" class="btn btn-primary"></div>
+						<div><input type="submit" value="Find" id="msubmit" class="btn btn-primary"></div><hr>
+						
 					</form>
 					<form method="POST" action="/download">
 						<div><input type="text" name="fname" id="fname" placeholder="download.txt" class="form-control"></div>
-						<div><input type="submit" value="View" id="msubmit" class="btn btn-primary"></div>
+						<div><input type="submit" value="View" id="msubmit" class="btn btn-primary"></div><hr>
 					</form>
 				<br>
-				<table class='table table-bordered'>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>TYPE</th>
-							<th>FILENAME</th>
-							<th>SIZE</th>
-							<th>PATH</th>
-							<th>MTIME</th>
-							<th>ATIME</th>
-							<th>CTIME</th>
-							<th>ETIME</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td colspan="10" style="padding:100px;text-align: center;font-size:30px">
-								Parsing...
-								<div class="loader"></div>
-							</td>
-						</tr>
-					</tbody>
+				<div id="itable">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>TYPE</th>
+								<th>FILENAME</th>
+								<th>SIZE</th>
+								<th>PATH</th>
+								<th>MTIME</th>
+								<th>ATIME</th>
+								<th>CTIME</th>
+								<th>ETIME</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="10" style="padding:100px;text-align: center;font-size:30px">
+									Parsing...
+									<div class="loader"></div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 	</body>
 </html>
